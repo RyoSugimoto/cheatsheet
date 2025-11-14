@@ -1,0 +1,30 @@
+---
+import '../assets/css/global.css';
+import '@fontsource/zen-kaku-gothic-new/500.css';
+import '@fontsource/handlee';
+import Logo from '../components/logo.astro';
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Cheatsheet</title>
+	</head>
+	<body>
+    <header>
+      <div class="p-4 mx-auto max-w-2xl flex justify-center">
+        <p><a href="/">
+          <Logo fontSize='1.125rem' />
+        </a></p>
+      </div>
+    </header>
+
+    <main class="px-4 py-12 mx-auto max-w-2xl">
+      <slot />
+    </main>
+
+    <footer></footer>
+	</body>
+</html>

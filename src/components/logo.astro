@@ -1,0 +1,22 @@
+---
+interface Props {
+  fontSize: string;
+}
+
+const { fontSize = '1rem' } = Astro.props;
+---
+
+<span
+  class="logo inline-flex items-center gap-2 leading-none" style={`--logo-font-size: ${fontSize};`}
+>
+  <span>🐆</span>
+  Cheat Sheets
+</span>
+
+<style>
+  .logo {
+    font-family: 'Handlee', cursive;
+    font-weight: 400;
+    font-size: var(--logo-font-size);
+  }
+</style>

@@ -1,0 +1,42 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('sheets');
+
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await render(post);
+---
+
+<Layout>
+  {post.data.title && <h1 class="article-title mb-12">{post.data.title}</h1>}
+
+  <ul class="text-sm grid grid-cols-2 gap-2 items-stretch mb-12">
+    {headings.map(({depth, slug, text}) => {
+      if (depth === 2) {
+        return (
+          <li class="grid items-stretch">
+            <a
+              href={`#${slug}`}
+              class="border-role-border flex gap-2 border rounded-sm p-2 items-center min-h-12 proportional"
+            >
+              <span>⬇️</span>
+              {text}
+            </a>
+          </li>
+        )
+      }
+    })}
+  </ul>
+
+  <div class="content" data-content-type="sheets">
+    <Content />
+  </div>
+</Layout>

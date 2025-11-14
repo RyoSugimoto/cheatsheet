@@ -1,0 +1,6 @@
+@layer components {
+  .article-title {
+    @apply proportional;
+    font-size: 1.5rem;
+  }
+}

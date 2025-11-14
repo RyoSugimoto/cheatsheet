@@ -1,0 +1,29 @@
+@theme {
+  /* color/scheme */
+
+  /* Base color  */
+  --color-scheme-base: var(--color-stone-400);
+  --color-scheme-base-min: var(--color-stone-50);
+  --color-scheme-base-soft: var(--color-stone-300);
+  --color-scheme-base-strong: var(--color-stone-700);
+  --color-scheme-base-max: var(--color-stone-900);
+
+  /* Accent color */
+  --color-scheme-accent: var(--color-rose-400);
+  --color-scheme-accent-soft: var(--color-rose-200);
+  --color-scheme-accent-strong: var(--color-rose-800);
+
+  /* Assort color */
+  --color-scheme-assort: var(--color-teal-400);
+  --color-scheme-assort-soft: var(--color-teal-200);
+  --color-scheme-assort-strong: var(--color-teal-800);
+
+  /* color/role */
+
+  --color-role-bg: var(--color-scheme-base-max);
+  --color-role-fg: var(--color-scheme-base-min);
+  --color-role-card-bg: var(--color-scheme-base-strong);
+  --color-role-border: var(--color-scheme-base);
+  --color-role-inline-code-fg: var(--color-scheme-assort);
+  --color-role-inline-code-bg: var(--color-scheme-base-max);
+}
