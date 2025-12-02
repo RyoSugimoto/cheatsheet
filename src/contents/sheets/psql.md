@@ -107,12 +107,6 @@ DROP TABLE table_name;
 \df
 ```
 
-### インデックス一覧
-
-```sql
-\di
-```
-
 ## データ操作 (SQL)
 
 ### テーブル内容をすべて表示
@@ -261,6 +255,70 @@ COPY table_name FROM '/path/file.csv' CSV HEADER;
 ```sql
 \g ファイル名
 ```
+
+## インデックス
+
+### インデックス一覧
+
+```sql
+\di
+```
+
+### インデックスを作成
+
+```sql
+CREATE INDEX <インデックス名> ON <テーブル名>(<カラム名>);
+```
+
+### 複合インデックスを作成
+
+```sql
+CREATE INDEX <インデックス名> ON <テーブル名>(<カラム名1>, <カラム名2>);
+```
+
+### UNIQUEインデックス
+
+```sql
+CREATE UNIQUE INDEX <インデックス名> ON <テーブル名>(カラム名);
+```
+
+### インデックスの使用状況を確認
+
+```sql
+EXPLAIN ANALYZE
+-- 対象クエリ
+```
+
+### 部分インデックス
+
+条件式に該当する行のみにインデックスを作る。
+
+```sql
+CREATE INDEX <インデックス名>　ON <テーブル名>(カラム名) WHERE <条件式>;
+```
+
+### 関数インデックスの例
+
+`email` を小文字にした値でインデックスを作る。
+
+```sql
+CREATE INDEX idx_lower_email ON users(lower(email));
+```
+
+### 全文検索インデックス（tsvector / tsquery）
+
+```sql
+CREATE INDEX <インデックス名> ON <テーブル名> USING GIN(to_tsvector('simple', <カラム名>));
+
+-- 検索
+SELECT <カラム名> FROM <テーブル名> WHERE to_tsvector('simple', <カラム名>) @@ to.tosquery(<キーワード>);
+```
+
+#### PostgreSQLの全文検索の特徴:
+
+- `tsvector` 型に文章を変換し、GIN/GiST インデックスで高速検索
+- 単語の重み付け、ランキング、ステミング、辞書など多機能
+- 日本語は外部エクステンションで対応（ `pg_jieba` など）
 
 ## Tips
 

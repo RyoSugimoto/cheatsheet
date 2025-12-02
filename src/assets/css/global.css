@@ -19,7 +19,7 @@
 }
 
 :root {
-  font-family:
+  --font-family:
     system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", "Zen Kaku Gothic New",
     sans-serif;
@@ -31,7 +31,7 @@ html {
   background-color: var(--color-role-bg);
   color: var(--color-role-fg);
   color-scheme: dark;
-  font-family: var(--font-sans);
+  font-family: var(--font-family);
   line-height: var(--line-height);
 }
 
@@ -84,22 +84,37 @@ code {
     }
   }
 
+  & h4 {
+    @apply proportional;
+    margin: 1.5rem 0 0;
+
+    &::before {
+      content: "⬇️ ";
+    }
+  }
+
   p {
     margin: 1.5rem 0 0;
   }
 
   ul {
     list-style: disc;
+    margin: 1.5rem 0 0;
     padding: 0 0 0 1.25em;
   }
 
   ol {
     list-style: decimal;
+    margin: 1.5rem 0 0;
     padding: 0 0 0 1.25em;
   }
 
   & table {
-    margin: 1.5rem 0;
+    margin: 1.5rem 0 0;
+  }
+
+  .astro-code {
+    margin: 1.5rem 0 0;
   }
 }
 

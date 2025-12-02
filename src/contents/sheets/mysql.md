@@ -265,12 +265,6 @@ SHOW PROCESSLIST;
 KILL プロセスID;
 ```
 
-### インデックスを確認
-
-```sql
-SHOW INDEX FROM table_name;
-```
-
 ### InnoDBの内部情報を確認
 
 ```sql
@@ -282,6 +276,53 @@ SHOW ENGINE INNODB STATUS\G
 ```sql
 SET sql_safe_updates=0;
 ```
+
+## インデックス
+
+### インデックスを作成
+
+```sql
+CREATE INDEX <インデックス名> ON <テーブル名>(<カラム名>);
+```
+
+### 複合インデックスを作成
+
+```sql
+CREATE INDEX <インデックス名> ON <テーブル名>(<カラム名1>, <カラム名2>);
+```
+
+### UNIQUEインデックス
+
+```sql
+CREATE UNIQUE INDEX <インデックス名> ON <テーブル名>(カラム名);
+```
+
+### インデックスを確認
+
+```sql
+SHOW INDEX FROM table_name;
+```
+
+### インデックスの使用状況を確認
+
+```sql
+EXPLAIN
+-- 対象クエリ
+```
+
+### 全文検索インデックス（FULLTEXT INDEX）
+
+```sql
+CREATE FULLTEXT INDEX <インデックス名> ON <テーブル名>(カラム名);
+
+-- 検索
+SELECT <カラム系> FROM <テーブル名> WHERE MATCH(<カラム名>) AGAINST(<キーワード>);
+```
+
+#### MySQLの全文検索の特徴
+
+- MySQLの標準機能だけで使える。
+- 日本語の検索精度は工夫が必要（ `N-gram` など）
 
 ## Tips
 
