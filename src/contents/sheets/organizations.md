@@ -96,3 +96,12 @@ Web Hypertext Application Technology Working Group
 - HTMLと関連技術（Web APIなど）の開発のためのコミュニティ
 - Apple、Mozilla、Opera、Microsoft
 - 「HTML Living Standard」を提唱 -> 現在のHTMLの唯一の標準
+
+---
+
+## 電気・情報工学
+
+### IEEE
+
+Institute of Electrical and Electronics Engineers
+
