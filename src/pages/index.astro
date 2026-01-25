@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import { HOME_DIR_NAME } from '../const.mjs';
 
 const collection = await getCollection('sheets');
 ---
@@ -9,7 +10,7 @@ const collection = await getCollection('sheets');
   <ul class="grid gap-4">
     {collection.map(({id, data}) => {
       return (<li>
-        <a href={`${Astro.url}/sheets/${id}`} class="flex items-center gap-2">
+        <a href={`/${HOME_DIR_NAME}/sheets/${id}`} class="flex items-center gap-2">
           <span>➡️</span>
           {data.title || id}
         </a>
