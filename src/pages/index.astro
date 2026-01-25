@@ -9,7 +9,7 @@ const collection = await getCollection('sheets');
   <ul class="grid gap-4">
     {collection.map(({id, data}) => {
       return (<li>
-        <a href={`/sheets/${id}`} class="flex items-center gap-2">
+        <a href={`${Astro.url}/sheets/${id}`} class="flex items-center gap-2">
           <span>➡️</span>
           {data.title || id}
         </a>
